@@ -1,0 +1,11 @@
+---
+title: "Report"
+author: "Emily Richmond"
+date: today
+format: html
+editor: visual
+---
+
+```{r}
+targets::tar_read(plot)
+```
