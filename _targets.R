@@ -8,12 +8,14 @@ library(quarto)
 source("R/functions.R")
 
 list(
-  tar_target(net_generation_wide, 
-             get_data()
+  tar_target(prices, 
+             get_data(prices,
+                      "https://raw.githubusercontent.com/acep-uaf/aetr-web-book-2024/main/data/working/prices/prices.csv")
   ),
   
-  tar_target(prices, 
-             get_data()
+  tar_target(net_generation_wide, 
+             get_data(net_generation_wide,
+                      "https://raw.githubusercontent.com/acep-uaf/aetr-web-book-2024/main/data/working/generation/net_generation_wide.csv")
   ),
   
   tar_target(updated_ngw,

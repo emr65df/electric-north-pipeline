@@ -1,10 +1,9 @@
-get_data <- function(){
-  net_generation_wide <- readr::read_csv("https://raw.githubusercontent.com/acep-uaf/aetr-web-book-2024/main/data/working/generation/net_generation_wide.csv")
-  prices <- readr::read_csv("https://raw.githubusercontent.com/acep-uaf/aetr-web-book-2024/main/data/working/prices/prices.csv")
+get_data <- function(output, url){
+  output <- readr::read_csv(url)
 }
 
 update_ngw <- function(net_generation_wide){
-  net_generation_wide %>%
+  updated_ngw <- net_generation_wide %>%
     rowwise() %>%
     mutate(total_gen = sum(dplyr::c_across(c(oil, gas, coal, hydro, wind, solar, storage, other)), na.rm = T)) %>%
     dplyr::ungroup() %>%
