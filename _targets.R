@@ -1,10 +1,9 @@
 library(targets)
 library(tarchetypes)
-library(tidyverse)
-library(patchwork)
-library(quarto)
 source("R/functions.R")
 
+tar_option_set(packages = c("tidyverse", "patchwork", "quarto")
+               )
 list(
   tar_target(prices, 
              get_data(prices,
